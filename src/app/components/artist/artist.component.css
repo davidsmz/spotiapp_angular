@@ -1,0 +1,9 @@
+.artist_image {
+  border-radius: 100%;
+  width: 150px;
+}
+
+.img_album {
+  width: 50px;
+  height: 50px;
+}

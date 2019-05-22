@@ -1,0 +1,12 @@
+<div (click)="watchArtist()" class="card pointer">
+  <img [src]="artist.images | urlimage" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ artist.name }}</h5>
+    <!-- <button
+    class="btn btn-primary btn-sm m-1"
+    *ngFor="let artist of release.artists"
+  >
+    {{ artist.name }}
+  </button> -->
+  </div>
+</div>

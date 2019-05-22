@@ -1,0 +1,72 @@
+<div *ngIf="artist != null" class="row mt-3">
+  <div class="col-2">
+    <img
+      [src]="artist.images | urlimage"
+      [alt]="artist.name"
+      class="img-thumbnail artist_image"
+    />
+  </div>
+  <div class="col">
+    <h3 class="text-white">
+      {{ artist.name }}
+    </h3>
+    <p>
+      <a [href]="artist.external_urls.spotify" target="_blank"
+        >Ir a la pagina del artista</a
+      >
+    </p>
+  </div>
+  <div class="col-4 text-right">
+    <button class="btn btn-outline-danger" [routerLink]="['home']">
+      Regresar
+    </button>
+  </div>
+</div>
+
+<div *ngIf="topTracks != null" class="row mt-5">
+  <div class="col">
+    <table class="table text-white">
+      <thead>
+        <tr>
+          <th scope="col">Photo</th>
+          <th scope="col">Album</th>
+          <th scope="col">Music</th>
+          <th scope="col">View Preview</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let track of topTracks">
+          <th>
+            <img
+              [src]="track.album.images | urlimage"
+              alt=""
+              class="img_album"
+            />
+          </th>
+          <th>{{ track.album.name }}</th>
+          <th>{{ track.name | lengthname }}</th>
+          <th>
+            <!-- <audio [src]="track.preview_url" controls></audio> -->
+            <!-- https://open.spotify.com/embed/track/ -->
+            <!-- <iframe
+              [src]="track.id | widgetplaybutton"
+              width="300"
+              height="80"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            ></iframe> -->
+            <iframe
+              [src]="track.id | urlwidgetsafe"
+              width="300"
+              height="80"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            ></iframe>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
